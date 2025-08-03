@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Shohoz Postman Collection with Newman
         run: |
-          newman run "../../Shohoz_integration_postman_collection.json" \
-            --environment "../../Shohoz_Test_Environment_postman_environment.json" \
+          newman run "../../ShohozIntegration.json" \
+            --environment "../../ShohozTestEnv.json" \
             --reporters cli,json \
             --reporter-json-export newman-report.json
