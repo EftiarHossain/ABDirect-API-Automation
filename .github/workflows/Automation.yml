@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:  # ✅ Enables the 'Run workflow' button in GitHub Actions
 
 jobs:
   run-postman-tests:
+    name: Run Shohoz Postman Collection
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +25,7 @@ jobs:
 
       - name: Run Shohoz Postman Collection with Newman
         run: |
-          newman run "Shohoz integration.postman_collection.json" \
-            --environment "Shohoz_Test_Environment.postman_environment.json" \
+          newman run "../../Shohoz_integration_postman_collection.json" \
+            --environment "../../Shohoz_Test_Environment_postman_environment.json" \
             --reporters cli,json \
             --reporter-json-export newman-report.json
