@@ -24,7 +24,7 @@ jobs:
 
     - name: Run Shohoz Collection with Environment
       run: |
-        newman run "ABBL_Postman_Collection/Shohoz integration.postman_collection.json" \
-          --environment "ABBL_Postman_Collection/Shohoz_Test_Environment.postman_environment.json" \
+        newman run "ABDirect-API-Automation/Shohoz integration.postman_collection.json" \
+          --environment "ABDirect-API-Automation/Shohoz_Test_Environment.postman_environment.json" \
           --reporters cli,json \
           --reporter-json-export newman-report.json
