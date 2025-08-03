@@ -1,0 +1,30 @@
+name: Run Postman Collection with Newman
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Shohoz Collection with Environment
+      run: |
+        newman run "ABBL_Postman_Collection/Shohoz integration.postman_collection.json" \
+          --environment "ABBL_Postman_Collection/Shohoz_Test_Environment.postman_environment.json" \
+          --reporters cli,json \
+          --reporter-json-export newman-report.json
