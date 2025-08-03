@@ -24,6 +24,7 @@ jobs:
             --reporter-html-export newman-report.html
 
       - name: Upload HTML Newman Report
+        if: always()  # ✅ Ensures report uploads even if Newman fails
         uses: actions/upload-artifact@v4  # ✅ updated version
         with:
           name: newman-html-report
